@@ -38,4 +38,9 @@ def genre_detail_view(request, pk):
         data = json.loads(request.body.decode('utf-8'))
         genre.name = data['name']
         genre.save()
-        return JsonResponse({'id': genre.id, 'name': genre.name}, status=201)
+        return JsonResponse({'message': 'Gênero alterado com sucesso'}, status=201)
+    elif request.method == 'DELETE':
+        genre.delete()
+        return JsonResponse({'message': 'Gênero deletado com sucesso'}, status=200)
+    
+    
