@@ -2,10 +2,10 @@
 from django.contrib import admin
 from django.urls import path
 from django.http import JsonResponse
-from genres.views import genre_create_list_view, genre_detail_view
+from genres.views import GenreRetrieveUpdateDestroyView, GenreCreateListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    path('genres/', genre_create_list_view, name='genres-create-list'),
-    path('genres/<int:pk>/', genre_detail_view , name='genres-detail-view'),
+    path('genres/', GenreCreateListView.as_view(), name='genres-create-list'),
+    path('genres/<int:pk>/', GenreRetrieveUpdateDestroyView.as_view() , name='genres-detail-view'),
 ]
