@@ -17,5 +17,5 @@ class Actor(models.Model):
     birthday = models.DateField(null=True, blank=True)
     
     def __str__(self):
-        return self.Name
+        return self.name
 
